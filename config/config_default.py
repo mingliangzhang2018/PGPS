@@ -42,7 +42,7 @@ def get_parser():
     ##############################################################################
     parser.add_argument('--optimizer_type', default="ADAMW", type=str, choices=optimizer_list)
     parser.add_argument('--lr', default=1e-3, type=float, help='initial learning rate without LM')
-    parser.add_argument('--lr_LM', default=7e-5, type=float, help='initial learning rate of LM')
+    parser.add_argument('--lr_LM', default=1e-4, type=float, help='initial learning rate of LM')
     parser.add_argument('--weight_decay', default=0.01, type=float)
     parser.add_argument('--max_epoch', default=540, type=int)
     parser.add_argument('--scheduler_type', default="warmup", type=str, choices=scheduler_list)
