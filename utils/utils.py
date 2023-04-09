@@ -255,8 +255,6 @@ def compute_exp_result_choice(test_preds, var_dict, exp_dict, tgt_lang):
                     break
                 pred_result = float(func_timeout(0.5, result_compute, \
                                         kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
-                # TODO prior knowledge of geometric values
-                if pred[-1][0] in ['N', 'V'] and pred_result<0: continue
                 for item in choices:
                     if abs(pred_result-item)<5e-2: 
                         is_find_ans = True
@@ -309,7 +307,6 @@ def compute_exp_result_topk(test_preds, var_dict, exp_dict, tgt_lang, k_num = 3)
                     break
                 pred_result = float(func_timeout(0.5, result_compute, \
                                         kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
-                if pred[-1][0] in ['N', 'V'] and pred_result<0: continue # Remove special symbols [SOS] and [EOS]
                 if abs(pred_result-tgt_result)<5e-3: 
                     is_ans_same = True
                     if len(pred)==len(tgt):
@@ -358,8 +355,6 @@ def compute_exp_result_comp(test_preds, var_dict, exp_dict, tgt_lang):
                     break
                 pred_result = float(func_timeout(0.5, result_compute, \
                                         kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
-                # TODO prior knowledge of geometric values
-                if pred[-1][0] in ['N', 'V'] and pred_result<0: continue
                 if abs(pred_result-tgt_result)<5e-3:
                     is_ans_same = True
                     if len(pred)==len(tgt):
