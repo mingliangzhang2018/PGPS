@@ -1,5 +1,5 @@
 # PGPS
-The code and dataset for IJCAI 2023 paper "A Multi-Modal Neural Geometric Solver with Textual Clauses Parsed from Diagram".
+The code and dataset of IJCAI 2023 paper "A Multi-Modal Neural Geometric Solver with Textual Clauses Parsed from Diagram".
 
 ## PGPS9K Dataset
 You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
