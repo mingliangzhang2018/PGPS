@@ -6,7 +6,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 
 #### Format of Annotation
 ```
-"prob_id": {  # name of problem
+"prob_id": {  
     "diagram": ..., # name of diagram 
     "text": ..., # content of textual problem
     "parsing_stru_seqs": ..., # structural clauses
