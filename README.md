@@ -1,11 +1,9 @@
 # PGPS
-The code and dataset of IJCAI 2023 paper "[*A Multi-Modal Neural Geometric Solver with Textual Clauses Parsed from Diagram*](https://arxiv.org/abs/2302.11097)".
-
-We propose a new neural solver **PGPSNet**, fusing multi-modal information through structural and semantic
+The code and dataset of IJCAI 2023 paper "[*A Multi-Modal Neural Geometric Solver with Textual Clauses Parsed from Diagram*](https://arxiv.org/abs/2302.11097)". We propose a new neural solver **PGPSNet**, fusing multi-modal information through structural and semantic
 pre-training, data augmentation, and self-limited decoding. We also construct a large-scale dataset PGPS9K labeled with both fine-grained diagram annotation and interpretable solution program. Our PGPSNet outperforms existing neural solvers significantly and also achieves comparable results as well-designed symbolic solvers.
 
 <div align=center>
-	<img src="images\PGDPNet.png">
+	<img width="400" src="images\PGDPNet.png">
 </div>
 <div align=center>
 	Figure 1. Overview of PGPSNet solver.
@@ -23,7 +21,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 
 #### Format of Solution Program
 <div align=center>
-	<img src="images\Annotation_Sample.png">
+	<img width="400" src="images\Annotation_Sample.png">
 </div>
 <div align=center>
 	Figure 3. Annotation of solution program and its interpretability.
