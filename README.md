@@ -10,7 +10,7 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 </div>
 
 <div align=center>
-	<img src="images\Pre-training.png">
+	<img width="800" src="images\Pre-training.png">
 </div>
 <div align=center>
 	Figure 2. Pipeline of structural and semantic pre-training.
