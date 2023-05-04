@@ -20,7 +20,7 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
 
 <div align=center>
-	<img width="800" src="images\datasets.png">
+	<img width="700" src="images\datasets.png">
 </div>
 <div align=center>
 	Figure 3. Example presentation of PGPS9K dataset.
