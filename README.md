@@ -54,7 +54,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 
 ## Citation
 
-If the paper, the dataset, or the code helps you, please cite the papers in the following format:
+If the paper, the dataset, or the code helps you, please cite the paper in the following format:
 ```
 @inproceedings{Zhang2023,
   title     = {Plane Geometry Diagram Parsing},
