@@ -56,14 +56,14 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 
 If the paper, the dataset, or the code helps you, please cite papers in the following format:
 ```
-@inproceedings{Zhang2023,
-  title     = {Plane Geometry Diagram Parsing},
+@inproceedings{Zhang2023PGPS,
+  title     = {A Multi-Modal Neural Geometric Solver with Textual Clauses Parsed from Diagram},
   author    = {Zhang, Ming-Liang and Yin, Fei and Liu, Cheng-Lin},
   booktitle = {IJCAI},
   year      = {2023},
 }
 
-@inproceedings{Zhang2022,
+@inproceedings{Zhang2022PGDP,
   title     = {Plane Geometry Diagram Parsing},
   author    = {Zhang, Ming-Liang and Yin, Fei and Hao, Yi-Han and Liu, Cheng-Lin},
   booktitle = {Proceedings of the Thirty-First International Joint Conference on
