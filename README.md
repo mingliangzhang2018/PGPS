@@ -34,7 +34,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 	Figure 4. Annotation of solution program and its interpretability.
 </div>
 
-#### Format of Annotation
+#### Format of Annotation File
 ```
 "prob_id": {  
     "diagram": ...,    # name of diagram 
