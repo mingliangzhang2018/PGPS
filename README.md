@@ -30,7 +30,7 @@ As to structural and semantic pre-training, you could train the language model f
 
 ## Training
 
-The default parameter configurations are set in the config files `./config/config_default.py` and the 
+The default parameter configurations are set in the config file `./config/config_default.py` and the 
 default training modes are displayed in `./sh_files/train.sh`, for example,
 
 ```
@@ -46,7 +46,7 @@ You could choose dataset (**Geometry3K** / **PGPS9K**)  and whether to use the p
 
 ## Test
 
-The default parameter configurations are set in the config files `./config/config_default.py` and the 
+The default parameter configurations are set in the config file `./config/config_default.py` and the 
 default test modes are displayed in `./sh_files/test.sh`, for example,
 
 ```
@@ -68,7 +68,6 @@ You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-
 <div align=center>
 	<img width="700" src="images\results.png">
 </div>
-
 
 
 ## Citation
