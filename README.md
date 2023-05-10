@@ -9,12 +9,12 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 	Figure 1. Overview of PGPSNet solver.
 </div>
 
-<div align=center>
+<!-- <div align=center>
 	<img width="800" src="images\Pre-training.png">
 </div>
 <div align=center>
 	Figure 2. Pipeline of structural and semantic pre-training.
-</div>
+</div> -->
 
 ## PGPS9K Dataset
 You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
@@ -23,7 +23,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 	<img width="750" src="images\datasets.png">
 </div>
 <div align=center>
-	Figure 3. Example presentation of PGPS9K dataset.
+	Figure 2. Example presentation of PGPS9K dataset.
 </div>
 
 #### Format of Solution Program
@@ -31,7 +31,7 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
 	<img width="400" src="images\Annotation_Sample.png">
 </div>
 <div align=center>
-	Figure 4. Annotation of solution program and its interpretability.
+	Figure 3. Annotation of solution program and its interpretability.
 </div>
 
 #### Format of Annotation File
@@ -49,6 +49,62 @@ You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/
     "page": ...,    # page location 
 }
 ```
+
+After downloading, in default, unzip the dataset file to the fold `./datasets`.
+
+## Environmental Settings
+- Python version: **3.8**
+- CUDA version: **10.2**
+- Other settings refer to *requirements.txt*
+```
+conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10.2 -c pytorch
+pip install -r requirements.txt
+```
+For all experiments, we use **one GTX-RTX GPU** or **two TITAN Xp GPUs** for training. 
+
+## Pre-training
+As to structural and semantic pre-training, you could train the language model from scratch at [here](https://github.com/mingliangzhang2018/PGPS-Pretraining), and we also provide the pre-trained language model `LM_MODEL.pth` at [BaiduYun link](https://pan.baidu.com/s/1dVdFCVVeXDORDe5q5xpbzw) (keyword: tkbd) or [GoogleDrive link](https://drive.google.com/file/d/1h4OPMSq71aneCRWwB7muRwdsClYwXE0V/view?usp=sharing). After downloading, in default, unzip the file to `./`.
+
+## Training
+
+The default parameter configurations are set in the config files `./config/config_default.py` and the 
+default training modes are displayed in `./sh_files/train.sh`, for example,
+
+```
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch \
+  --nproc_per_node=1 \
+  --master_port=$((RANDOM + 10000)) \
+  start.py \
+  --dataset Geometry3K \
+  --use_MLM_pretrain
+```
+
+You could choose dataset (*Geometry3K* / *PGPS9K*)  and whether to use the pre-training language model. The training records of the PGPSNet are saved in the folder `./log`.
+
+## Test
+
+The default parameter configurations are set in the config files `./config/config_default.py` and the 
+default test modes are displayed in `./sh_files/test.sh`, for example,
+
+```
+CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch \
+--nproc_per_node=1 \
+--master_port=$((RANDOM + 10000)) \
+start.py \
+--dataset Geometry3K \
+--use_MLM_pretrain \
+--evaluate_only \
+--eval_method completion \
+--resume_model log/*/best_model.pth
+```
+You could choose datasets (*Geometry3K* / *PGPS9K*), whether to use the pre-training language model, and evaluation methods (*completion* / *choice* / *top3*). The test records are also saved in the folder `./log`.
+
+<div align=center>
+	Tab 1. Numerical answer accuracies (%) of state-of-the-art GPS solvers.
+</div>
+<div align=center>
+	<img width="700" src="images\results.png">
+</div>
 
 
 
@@ -82,7 +138,6 @@ If the paper, the dataset, or the code helps you, please cite papers in the foll
   pages={1763-1769}
 }
 ```
-
 
 ## Acknowledge
 Please let us know if you encounter any issues. You could contact with the first author (zhangmingliang2018@ia.ac.cn) or leave an issue in the github repo.
