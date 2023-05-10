@@ -16,11 +16,6 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 	Figure 2. Pipeline of structural and semantic pre-training.
 </div> -->
 
-## PGPS9K Dataset
-You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
-
-In default, unzip the dataset file to the fold `./datasets`.
-
 ## Environmental Settings
 - Python version: **3.8**
 - CUDA version: **10.2**
@@ -30,6 +25,11 @@ conda install pytorch==1.7.1 torchvision==0.8.2 torchaudio==0.7.2 cudatoolkit=10
 pip install -r requirements.txt
 ```
 For all experiments, we use **one GTX-RTX GPU** or **two TITAN Xp GPUs** for training. 
+
+## PGPS9K Dataset
+You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
+
+In default, unzip the dataset file to the fold `./datasets`.
 
 ## Pre-training
 As to structural and semantic pre-training, you could train the language model from scratch at [here](https://github.com/mingliangzhang2018/PGPS-Pretraining), and we also provide the pre-trained language model `LM_MODEL.pth` at [BaiduYun link](https://pan.baidu.com/s/1dVdFCVVeXDORDe5q5xpbzw) (keyword: tkbd) or [GoogleDrive link](https://drive.google.com/file/d/1h4OPMSq71aneCRWwB7muRwdsClYwXE0V/view?usp=sharing). In default, unzip the file to the fold `./`.
