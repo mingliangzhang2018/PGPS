@@ -48,7 +48,7 @@ CUDA_VISIBLE_DEVICES=0 python -m torch.distributed.launch \
   --use_MLM_pretrain
 ```
 
-You could choose dataset (*Geometry3K* / *PGPS9K*)  and whether to use the pre-training language model. The training records of the PGPSNet are saved in the folder `./log`.
+You could choose dataset (**Geometry3K** / **PGPS9K**)  and whether to use the pre-training language model. The training records of the PGPSNet are saved in the folder `./log`.
 
 ## Test
 
@@ -66,7 +66,7 @@ start.py \
 --eval_method completion \
 --resume_model log/*/best_model.pth
 ```
-You could choose datasets (*Geometry3K* / *PGPS9K*), whether to use the pre-training language model, and evaluation methods (*completion* / *choice* / *top3*). The test records are also saved in the folder `./log`.
+You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-training language model, and evaluation methods (**completion** / **choice** / **top3**). The test records are also saved in the folder `./log`.
 
 <div align=center>
 	Tab 1. Numerical answer accuracies of state-of-the-art GPS solvers.
