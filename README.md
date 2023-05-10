@@ -19,38 +19,7 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 ## PGPS9K Dataset
 You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K).
 
-<div align=center>
-	<img width="750" src="images\datasets.png">
-</div>
-<div align=center>
-	Figure 2. Example presentation of PGPS9K dataset.
-</div>
-
-#### Format of Solution Program
-<div align=center>
-	<img width="400" src="images\Annotation_Sample.png">
-</div>
-<div align=center>
-	Figure 3. Annotation of solution program and its interpretability.
-</div>
-
-#### Format of Annotation File
-```
-"prob_id": {  
-    "diagram": ...,    # name of diagram 
-    "text": ...,    # content of textual problem
-    "parsing_stru_seqs": ...,    # structural clauses
-    "parsing_sem_seqs": ...,    # semantic clauses
-    "expression": ...,    # solution program
-    "answer": ...,    # numerical answer
-    "choices": ...,    # four numerical candidates
-    "type": ...,    # knowledge type of question
-    "book": ...,    # textbook name 
-    "page": ...,    # page location 
-}
-```
-
-After downloading, in default, unzip the dataset file to the fold `./datasets`.
+In default, unzip the dataset file to the fold `./datasets`.
 
 ## Environmental Settings
 - Python version: **3.8**
@@ -63,7 +32,7 @@ pip install -r requirements.txt
 For all experiments, we use **one GTX-RTX GPU** or **two TITAN Xp GPUs** for training. 
 
 ## Pre-training
-As to structural and semantic pre-training, you could train the language model from scratch at [here](https://github.com/mingliangzhang2018/PGPS-Pretraining), and we also provide the pre-trained language model `LM_MODEL.pth` at [BaiduYun link](https://pan.baidu.com/s/1dVdFCVVeXDORDe5q5xpbzw) (keyword: tkbd) or [GoogleDrive link](https://drive.google.com/file/d/1h4OPMSq71aneCRWwB7muRwdsClYwXE0V/view?usp=sharing). After downloading, in default, unzip the file to `./`.
+As to structural and semantic pre-training, you could train the language model from scratch at [here](https://github.com/mingliangzhang2018/PGPS-Pretraining), and we also provide the pre-trained language model `LM_MODEL.pth` at [BaiduYun link](https://pan.baidu.com/s/1dVdFCVVeXDORDe5q5xpbzw) (keyword: tkbd) or [GoogleDrive link](https://drive.google.com/file/d/1h4OPMSq71aneCRWwB7muRwdsClYwXE0V/view?usp=sharing). In default, unzip the file to the fold `./`.
 
 ## Training
 
@@ -100,7 +69,7 @@ start.py \
 You could choose datasets (*Geometry3K* / *PGPS9K*), whether to use the pre-training language model, and evaluation methods (*completion* / *choice* / *top3*). The test records are also saved in the folder `./log`.
 
 <div align=center>
-	Tab 1. Numerical answer accuracies (%) of state-of-the-art GPS solvers.
+	Tab 1. Numerical answer accuracies of state-of-the-art GPS solvers.
 </div>
 <div align=center>
 	<img width="700" src="images\results.png">
