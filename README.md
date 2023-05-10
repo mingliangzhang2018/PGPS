@@ -9,12 +9,6 @@ pre-training, data augmentation, and self-limited decoding. We also construct a 
 	Figure 1. Overview of PGPSNet solver.
 </div>
 
-<!-- <div align=center>
-	<img width="800" src="images\Pre-training.png">
-</div>
-<div align=center>
-	Figure 2. Pipeline of structural and semantic pre-training.
-</div> -->
 
 ## Environmental Settings
 - Python version: **3.8**
@@ -69,7 +63,7 @@ start.py \
 You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-training language model, and evaluation methods (**completion** / **choice** / **top3**). The test records are also saved in the folder `./log`.
 
 <div align=center>
-	Tab 1. Numerical answer accuracies of state-of-the-art GPS solvers.
+	Table 1. Numerical answer accuracies of state-of-the-art GPS solvers.
 </div>
 <div align=center>
 	<img width="700" src="images\results.png">
