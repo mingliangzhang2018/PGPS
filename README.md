@@ -60,7 +60,7 @@ start.py \
 --eval_method completion \
 --resume_model log/*/best_model.pth
 ```
-You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-training language model, and evaluation methods (**completion** / **choice** / **top3**). The test records are also saved in the folder `./log` (The results of code are 2%-3% higher than those reported in the paper due to fine-tuning of hyperparameters). 
+You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-training language model, and evaluation methods (**completion** / **choice** / **top3**). The test records are also saved in the folder `./log` (The results of this code are 2%-3% higher than those reported in the paper due to fine-tuning of hyperparameters). 
 
 <div align=center>
 	Table 1. Numerical answer accuracies of state-of-the-art GPS solvers (reported in the paper).
