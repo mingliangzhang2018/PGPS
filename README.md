@@ -63,7 +63,7 @@ start.py \
 You could choose datasets (**Geometry3K** / **PGPS9K**), whether to use the pre-training language model, and evaluation methods (**completion** / **choice** / **top3**). The test records are also saved in the folder `./log` (The results of code are 2%-3% higher than those reported in the paper due to fine-tuning of hyperparameters). 
 
 <div align=center>
-	Table 1. Numerical answer accuracies of state-of-the-art GPS solvers.
+	Table 1. Numerical answer accuracies of state-of-the-art GPS solvers (reproted in the paper).
 </div>
 <div align=center>
 	<img width="700" src="images\results.png">
