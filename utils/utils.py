@@ -248,13 +248,13 @@ def compute_exp_result_choice(test_preds, var_dict, exp_dict, tgt_lang):
             try:
                 pred = tgt_lang.sentence_from_indexes(test_preds[k][j], var2arg_dict)
                 pred = normalize_exp(pred)
+                pred_result = float(func_timeout(2.0, result_compute, \
+                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if pred == tgt:
                     ans_num += 1
                     eq_num += 1
                     is_find_ans = True
                     break
-                pred_result = float(func_timeout(0.5, result_compute, \
-                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 for item in choices:
                     if abs(pred_result-item)<5e-2: 
                         is_find_ans = True
@@ -301,12 +301,12 @@ def compute_exp_result_topk(test_preds, var_dict, exp_dict, tgt_lang, k_num = 3)
             try:
                 pred = tgt_lang.sentence_from_indexes(test_preds[k][j], var2arg_dict)
                 pred = normalize_exp(pred)
+                pred_result = float(func_timeout(2.0, result_compute, \
+                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if pred == tgt:
                     is_ans_same = True
                     is_eq_same = True
                     break
-                pred_result = float(func_timeout(0.5, result_compute, \
-                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if abs(pred_result-tgt_result)<5e-3: 
                     is_ans_same = True
                     if len(pred)==len(tgt):
@@ -349,12 +349,12 @@ def compute_exp_result_comp(test_preds, var_dict, exp_dict, tgt_lang):
             try:
                 pred = tgt_lang.sentence_from_indexes(test_preds[k][j], var2arg_dict)
                 pred = normalize_exp(pred)
+                pred_result = float(func_timeout(2.0, result_compute, \
+                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if pred == tgt:
                     is_ans_same = True
                     is_eq_same = True
                     break
-                pred_result = float(func_timeout(0.5, result_compute, \
-                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if abs(pred_result-tgt_result)<5e-3:
                     is_ans_same = True
                     if len(pred)==len(tgt):
