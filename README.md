@@ -21,7 +21,7 @@ pip install -r requirements.txt
 For all experiments, we use **one GTX-RTX GPU** or **two TITAN Xp GPUs** for training. 
 
 ## PGPS9K Dataset
-You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K)(It will be available before the IJCAI2023 conference).
+You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K) and it will be available before the IJCAI2023 conference.
 
 In default, unzip the dataset file to the fold `./datasets`.
 
