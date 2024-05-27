@@ -110,7 +110,7 @@ def get_scheduler(args, optimizer):
 
 def get_optimizer(args, model):
     if args.use_MLM_pretrain:
-        pretrain_params = list(map(id, model.mlm_pretrain.parameters()))
+        pretrain_params = list(map(id, model.from_pretrained.parameters()))
         other_params = filter(lambda p: id(p) not in pretrain_params, model.parameters())
 
     if args.optimizer_type == "SGD":
