@@ -5,7 +5,7 @@ import torch.utils.data
 import torch.nn.parallel
 from core.train_t5 import *
 from utils import *
-from core.network import get_model
+from core.network_t5 import get_model
 from loss import get_criterion
 from datasets import get_dataloader
 from transformers import DataCollatorForSeq2Seq
