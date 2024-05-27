@@ -4,7 +4,7 @@ import torch
 import torch.backends.cudnn as cudnn
 import torch.distributed as dist
 from config import *
-from core.worker import main_worker
+from core.worker_t5 import main_worker
 
 
 if __name__ == '__main__':
