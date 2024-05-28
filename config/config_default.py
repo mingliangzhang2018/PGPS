@@ -84,5 +84,6 @@ def get_parser():
     parser.add_argument('--init_method', default="env://", type=str, help='distributed init method')
     parser.add_argument('--debug', action='store_true', help = "if debug than set local rank = 0")
     parser.add_argument('--seed', default=202302, type=int,help='seed for initializing training. ')
-
+    parser.add_argument('--max_seq_length', type=int, default=128, help='Maximum sequence length for tokenization')
+    
     return parser.parse_args()
