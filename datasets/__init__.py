@@ -77,4 +77,4 @@ def get_dataloader(args):
                             collate_fn=collate_fn
                             )
                             
-    return train_loader, train_sampler, test_loader, src_lang, tgt_lang
+    return train_loader, train_sampler, train_loader, src_lang, tgt_lang
