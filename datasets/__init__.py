@@ -48,12 +48,14 @@ def get_dataloader(args):
     test_data_path = os.path.join(args.dataset_dir, args.dataset, 'test.json')
     test_pairs = get_raw_pairs(test_data_path)
 
-    train_pairs += test_pairs
+    # train_pairs += test_pairs
 
     train_data = MyDataset(args, train_pairs, src_lang, tgt_lang, is_train=True)
     test_data = MyDataset(args, test_pairs, src_lang, tgt_lang, is_train=False)
 
     def collate_fn(batch):
+        for item in batch:
+            print(item)
         input_texts = [item['text'] for item in batch]
         target_texts = [item['target'] for item in batch]
         model_inputs = tokenizer(input_texts, max_length=args.max_seq_length, truncation=True, padding="max_length", return_tensors="pt")
