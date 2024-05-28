@@ -51,7 +51,7 @@ def get_dataloader(args):
     # train_pairs += test_pairs
 
     train_data = MyDataset(args, train_pairs, src_lang, tgt_lang, is_train=True)
-    test_data = MyDataset(args, test_pairs, src_lang, tgt_lang, is_train=False)
+    test_data = MyDataset(args, test_pairs, src_lang, tgt_lang, is_train=True)
 
     def collate_fn(batch):
         for item in batch:
@@ -72,11 +72,11 @@ def get_dataloader(args):
                               sampler=train_sampler
                              )
     test_loader = DataLoader(dataset=test_data, 
-                             batch_size=1, 
-                             pin_memory=True, 
-                             collate_fn=collate_fn, 
-                             num_workers=args.workers, 
-                             shuffle=False
+                            batch_size=int(args.batch_size / args.nprocs), 
+                            pin_memory=True, 
+                            collate_fn=collate_fn, 
+                            num_workers=args.workers, 
+                            sampler=train_sampler
                             )
                             
     return train_loader, train_sampler, test_loader, src_lang, tgt_lang
