@@ -70,8 +70,10 @@ def validate(args, val_loader, model, tgt_lang):
             
             # compute output
             outputs = model(**inputs, decoder_input_ids=decoder_input_ids)
-            print(outputs)
-            args.logger.info(outputs)
+            test_preds = outputs.logits.argmax(dim=-1)  # Assuming beam_size x token_list
+            print(test_preds)
+            args.logger.info(test_preds)
+
 
             if args.eval_method == "completion":
                 acc1, acc2 = compute_exp_result_comp(outputs, inputs, labels, tgt_lang)

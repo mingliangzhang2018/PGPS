@@ -273,8 +273,7 @@ def compute_exp_result_choice(test_preds, var_dict, exp_dict, tgt_lang):
                 
     return ans_num/len(test_preds), eq_num/len(test_preds)
 
-def compute_exp_result_topk(test_preds, var_dict, exp_dict, tgt_lang, k_num = 3):
-    
+def compute_exp_result_topk(test_preds, var_dict, exp_dict, tgt_lang, k_num=3):
     """
     Arguments
         test_preds: B x candi_size(beam_size) x token_list
@@ -288,37 +287,45 @@ def compute_exp_result_topk(test_preds, var_dict, exp_dict, tgt_lang, k_num = 3)
     gc.collect()
     ans_num = eq_num = 0
 
-    for k in range(len(test_preds)): # batch id 
-        tgt = exp_dict['exp'][k][1:exp_dict['len'][k]-1].tolist() # Remove special symbols [SOS] and [EOS]
-        var2arg_dict = {'N'+str(i+len(var_dict['var_value'][k])):item \
-                                for i, item in enumerate(var_dict['arg_value'][k])}
+    for k in range(len(test_preds)):  # batch id
+        # Remove special symbols [SOS] and [EOS]
+        tgt_exp = exp_dict['exp'][k]
+        tgt_len = exp_dict['len'][k]
+        if len(tgt_exp.size()) == 1:  # Ensure tgt_exp is 1D
+            tgt = tgt_exp[1:tgt_len-1].tolist()
+        else:
+            tgt = tgt_exp.squeeze(0)[1:tgt_len-1].tolist()
+
+        var2arg_dict = {'N' + str(i + len(var_dict['var_value'][k])): item
+                        for i, item in enumerate(var_dict['arg_value'][k])}
         tgt = tgt_lang.sentence_from_indexes(tgt, var2arg_dict)
         num_list = var_dict['var_value'][k]
         tgt_result = float(exp_dict['answer'][k])
         is_ans_same = is_eq_same = False
 
-        for j in range(k_num): # top-n
+        for j in range(k_num):  # top-n
             try:
                 pred = tgt_lang.sentence_from_indexes(test_preds[k][j], var2arg_dict)
                 pred = normalize_exp(pred)
-                pred_result = float(func_timeout(2.0, result_compute, \
-                                        kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
+                pred_result = float(func_timeout(2.0, result_compute,
+                                                 kwargs=dict(num_all_list=num_list, exp_tokens=pred)))
                 if pred == tgt:
                     is_ans_same = True
                     is_eq_same = True
                     break
-                if abs(pred_result-tgt_result)<5e-3: 
+                if abs(pred_result - tgt_result) < 5e-3:
                     is_ans_same = True
-                    if len(pred)==len(tgt):
+                    if len(pred) == len(tgt):
                         is_eq_same = True
                         break
-            except:
+            except Exception as e:
+                print(f"Error processing prediction: {e}")
                 pass
-        
-        if is_ans_same: ans_num +=1
-        if is_eq_same: eq_num +=1
-        
-    return ans_num/len(test_preds), eq_num/len(test_preds)
+
+        if is_ans_same: ans_num += 1
+        if is_eq_same: eq_num += 1
+
+    return ans_num / len(test_preds), eq_num / len(test_preds)
 
 
 def compute_exp_result_comp(test_preds, var_dict, exp_dict, tgt_lang):
