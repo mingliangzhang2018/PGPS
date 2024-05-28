@@ -15,15 +15,15 @@ def main_worker(args):
     args.logger = initialize_logger(args)
     train_loader, train_sampler, val_loader, src_lang, tgt_lang = get_dataloader(args)
     model = get_model(args, src_lang, tgt_lang).cuda()
-    optimizer = get_optimizer(args, model)
-    scheduler = get_scheduler(args, optimizer)
+    # optimizer = get_optimizer(args, model)
+    # scheduler = get_scheduler(args, optimizer)
     criterion = get_criterion(args)
     start_epoch = 0
 
     if not args.resume_model == '':
         resume_model_dict = model.load_model(args.resume_model)
-        optimizer.load_state_dict(resume_model_dict['optimizer'])
-        scheduler.load_state_dict(resume_model_dict['scheduler'])
+        # optimizer.load_state_dict(resume_model_dict['optimizer'])
+        # scheduler.load_state_dict(resume_model_dict['scheduler'])
         start_epoch = resume_model_dict["epoch"] + 1
         args.logger.info("The whole model has been loaded from " + args.resume_model)
         args.logger.info("The model resumes from epoch " + str(resume_model_dict["epoch"]))
