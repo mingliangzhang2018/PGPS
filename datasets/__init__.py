@@ -72,11 +72,9 @@ def get_dataloader(args):
                               sampler=train_sampler
                              )
     test_loader = DataLoader(dataset=test_data, 
-                            batch_size=int(args.batch_size / args.nprocs), 
+                            batch_size=int(1), 
                             pin_memory=True, 
-                            collate_fn=collate_fn, 
-                            num_workers=args.workers, 
-                            sampler=train_sampler
+                            collate_fn=collate_fn
                             )
                             
     return train_loader, train_sampler, test_loader, src_lang, tgt_lang
