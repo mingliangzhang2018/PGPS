@@ -21,10 +21,15 @@ def main_worker(args):
     start_epoch = 0
 
     if not args.resume_model == '':
-        resume_model_dict = model.load_model(args.resume_model)
+        # resume_model_dict = model.load_model(args.resume_model)
         # optimizer.load_state_dict(resume_model_dict['optimizer'])
         # scheduler.load_state_dict(resume_model_dict['scheduler'])
-        start_epoch = resume_model_dict["epoch"] + 1
+        # start_epoch = resume_model_dict["epoch"] + 1
+        checkpoint = torch.load(args.resume_model)
+        model.load_state_dict(checkpoint['state_dict'])
+        # optimizer.load_state_dict(checkpoint['optimizer'])
+        # scheduler.load_state_dict(checkpoint['scheduler'])
+        start_epoch = checkpoint['epoch'] + 1
         args.logger.info("The whole model has been loaded from " + args.resume_model)
         args.logger.info("The model resumes from epoch " + str(resume_model_dict["epoch"]))
         if args.evaluate_only:
