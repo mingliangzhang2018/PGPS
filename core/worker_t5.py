@@ -31,11 +31,11 @@ def main_worker(args):
         # scheduler.load_state_dict(checkpoint['scheduler'])
         start_epoch = checkpoint['epoch'] + 1
         args.logger.info("The whole model has been loaded from " + args.resume_model)
-        args.logger.info("The model resumes from epoch " + str(resume_model_dict["epoch"]))
+        args.logger.info("The model resumes from epoch " + str(checkpoint["epoch"]))
         if args.evaluate_only:
             acc_ans, acc_eq = validate(args, val_loader, model, tgt_lang)
             args.logger.info("----------Epoch:{:>3d}, test answer_acc {:>5.4f}, equation_acc {:>5.4f} ---------" \
-                                            .format(resume_model_dict["epoch"], acc_ans, acc_eq))
+                                            .format(checkpoint["epoch"], acc_ans, acc_eq))
             return
     else:
         args.logger.info("The model is trained from scratch")
