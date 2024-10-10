@@ -21,7 +21,7 @@ pip install -r requirements.txt
 For all experiments, we use **one GTX-RTX GPU** or **two TITAN Xp GPUs** for training. 
 
 ## PGPS9K Dataset
-You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K) and the password is '**PAL_PGPS_2023**'. 
+You could download the dataset from [Dataset Homepage](http://www.nlpr.ia.ac.cn/databases/CASIA-PGPS9K) and the password is **PAL_PGPS_2023**. 
 
 In default, unzip the dataset file to the fold `./datasets`.
 
